@@ -27,10 +27,12 @@ public class WebToolBar extends JToolBar implements HyperlinkListener {
 
 		// register for HyperlinkEvents
 		webBrowserPane = browser;
-		webBrowserPane.addHyperlinkListener(this);
+		webBrowserPane.addHyperlinkListener(this);		//	???
 
 		// create JTextField for entering URLs
 		urlTextField = new JTextField(25);
+		
+		
 		urlTextField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				// attempt to load URL in webBrowserPane
@@ -46,9 +48,18 @@ public class WebToolBar extends JToolBar implements HyperlinkListener {
 			}
 		});
 
+		
 		// create JButton for navigating to previous history URL
-		backButton = new JButton(new ImageIcon(getClass().getResource(
-				"images/back.gif")));
+		backButton = new JButton(new ImageIcon(System.getProperty("user.dir") + "\\images\\back.gif"));
+
+/*		
+		System.out.println("getClass(): " + getClass());
+		System.out.println("getClass().getResource(...): " + getClass().getResource("images/back.gif"));
+		System.out.println((System.getProperty("user.dir") + "\\images\\forward.gif").replace("\\", "/"));
+
+		System.out.println(getClass().getResource((System.getProperty("user.dir") + "\\images\\forward.gif").replace("\\", "/")));
+*/		
+
 
 		backButton.addActionListener(new ActionListener() {
 
@@ -62,8 +73,9 @@ public class WebToolBar extends JToolBar implements HyperlinkListener {
 		});
 
 		// create JButton for navigating to next history URL
-		forwardButton = new JButton(new ImageIcon(getClass().getResource(
-				"images/forward.gif")));
+		//forwardButton = new JButton(new ImageIcon(getClass().getResource(
+		//		("file:\\" + System.getProperty("user.dir") + "\\images\\forward.gif").replace("\\", "/"))));
+		forwardButton = new JButton(new ImageIcon(System.getProperty("user.dir") + "\\images\\forward.gif"));
 
 		forwardButton.addActionListener(new ActionListener() {
 
