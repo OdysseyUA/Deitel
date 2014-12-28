@@ -27,7 +27,7 @@ public class WebToolBar extends JToolBar implements HyperlinkListener {
 
 		// register for HyperlinkEvents
 		webBrowserPane = browser;
-		webBrowserPane.addHyperlinkListener(this);		//	???
+		webBrowserPane.addHyperlinkListener(this);		//	add link handler to WebBrowserPane
 
 		// create JTextField for entering URLs
 		urlTextField = new JTextField(25);
