@@ -3,7 +3,7 @@
 // for navigating a WebBrowserPane. WebToolBar includes back
 // and forward buttons and a text field for entering URLs.
 
-package com.swing.chapter2;
+package com.swing.chapter2.gui;
 
 import java.awt.event.*;
 import java.net.*;

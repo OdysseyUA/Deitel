@@ -1,7 +1,7 @@
 //WebBrowser.java
 //WebBrowser is an application for browsing Web sites using
 //a WebToolBar and WebBrowserPane.
-package com.swing.chapter2;
+package com.swing.chapter2.gui;
 
 //Java core packages
 import java.awt.*;

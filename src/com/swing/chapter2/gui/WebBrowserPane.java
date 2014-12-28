@@ -1,4 +1,4 @@
-package com.swing.chapter2;
+package com.swing.chapter2.gui;
 
 import java.util.*;
 import java.net.*;
