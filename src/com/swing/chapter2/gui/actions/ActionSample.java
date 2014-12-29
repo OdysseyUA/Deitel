@@ -91,6 +91,9 @@ public class ActionSample extends JFrame {
 		// disable exitAction and associated GUI components
 		exitAction.setEnabled(false);
 
+		
+		
+		
 		// create File menu
 		JMenu fileMenu = new JMenu("File");
 
@@ -106,6 +109,9 @@ public class ActionSample extends JFrame {
 		menuBar.add(fileMenu);
 		setJMenuBar(menuBar);
 
+		
+		
+		
 		// create JToolBar
 		JToolBar toolBar = new JToolBar();
 
@@ -114,6 +120,9 @@ public class ActionSample extends JFrame {
 		toolBar.add(sampleAction);
 		toolBar.add(exitAction);
 
+		
+		
+		
 		// create JButton and set its Action to sampleAction
 		JButton sampleButton = new JButton();
 		sampleButton.setAction(sampleAction);
@@ -126,6 +135,11 @@ public class ActionSample extends JFrame {
 		buttonPanel.add(sampleButton);
 		buttonPanel.add(exitButton);
 
+		
+		
+		
+		
+		
 		// add toolBar and buttonPanel to JFrame's content pane
 		Container container = getContentPane();
 		container.add(toolBar, BorderLayout.NORTH);
