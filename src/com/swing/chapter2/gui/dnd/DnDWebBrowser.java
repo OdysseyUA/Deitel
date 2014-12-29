@@ -11,15 +11,15 @@ import java.awt.dnd.*;
 import java.awt.datatransfer.*;
 import java.util.*;
 import java.io.*;
+
 //Java extension packages
 import javax.swing.*;
+
 // Default classes packages
 import com.swing.chapter2.gui.*;
 
 public class DnDWebBrowser extends JFrame {
-
 	private static final long serialVersionUID = 1L;
-	
 	private WebToolBar toolBar;
 	private WebBrowserPane browserPane;
 
@@ -42,17 +42,20 @@ public class DnDWebBrowser extends JFrame {
 		contentPane.add(new JScrollPane(browserPane), BorderLayout.CENTER);
 	}
 
+	
+	
 	// inner class to handle DropTargetEvents
 	private class DropTargetHandler implements DropTargetListener {
 
 		// handle drop operation
+		@SuppressWarnings("deprecation")
 		public void drop(DropTargetDropEvent event) {
 			// get dropped Transferable object
 			Transferable transferable = event.getTransferable();
 
 			// if Transferable is a List of Files, accept drop
-			if (transferable
-					.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
+			if (transferable.isDataFlavorSupported(
+					DataFlavor.javaFileListFlavor)) {
 
 				// accept the drop operation to copy the object
 				event.acceptDrop(DnDConstants.ACTION_COPY);
@@ -61,15 +64,18 @@ public class DnDWebBrowser extends JFrame {
 				try {
 
 					// get List of Files
+					@SuppressWarnings("rawtypes")
 					java.util.List fileList = (java.util.List) transferable
 							.getTransferData(DataFlavor.javaFileListFlavor);
 
+					@SuppressWarnings("rawtypes")
 					Iterator iterator = fileList.iterator();
 
 					while (iterator.hasNext()) {
 						File file = (File) iterator.next();
 
 						// display File in browser and complete drop
+						System.out.println(file.toURL());
 						browserPane.goToURL(file.toURL());
 					}
 
