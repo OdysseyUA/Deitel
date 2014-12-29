@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 
 
 
+
+
 //Java core packages
 import java.awt.*;
 import java.net.MalformedURLException;
@@ -43,15 +45,22 @@ public class FavoritesWebBrowser extends JFrame {
 		// in favoritesBrowserPane
 		favoritesBrowserPane.addHyperlinkListener(toolBar);
 
-		// display favorites.html in favoritesBrowserPane
+		
+		System.out.println(getClass().getResource("favorites.html").toString());
 		favoritesBrowserPane.goToURL(getClass().getResource("favorites.html"));
-		/*
-		try {
-			favoritesBrowserPane.goToURL(new URL(System.getProperty("user.dir") + "\\resource\\favorites.html"));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		*/
+		
+/*
+	String s = "file:/" + (System.getProperty("user.dir") + "\\resource\\favorites.html").replace('\\', '/');		
+	System.out.println(s);
+	// display favorites.html in favoritesBrowserPane
+	try {
+		favoritesBrowserPane.goToURL(new URL(s));
+	} catch (MalformedURLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}		
+*/		
+	
 		
 
 		// create JSplitPane with horizontal split (side-by-side)
