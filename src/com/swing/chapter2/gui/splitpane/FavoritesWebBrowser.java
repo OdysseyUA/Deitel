@@ -5,20 +5,8 @@
 package com.swing.chapter2.gui.splitpane;
 
 import javax.swing.JFrame;
-
-
-
-
-
-
-//Java core packages
-import java.awt.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-
-//Java extension packages
-import javax.swing.*;
+import java.awt.*;				//Java core packages
+import javax.swing.*;			//Java extension packages
 
 import com.swing.chapter2.gui.*;
 
@@ -32,7 +20,7 @@ public class FavoritesWebBrowser extends JFrame {
 
 	// WebBrowser constructor
 	public FavoritesWebBrowser() {
-		super("Deitel Web Browser");
+		super("Odyssey Web Browser");
 
 		// create WebBrowserPane and WebToolBar for navigation
 		browserPane = new WebBrowserPane();
@@ -44,30 +32,14 @@ public class FavoritesWebBrowser extends JFrame {
 		// add WebToolBar as listener for HyperlinkEvents
 		// in favoritesBrowserPane
 		favoritesBrowserPane.addHyperlinkListener(toolBar);
-
-		
-		System.out.println(getClass().getResource("favorites.html").toString());
-		favoritesBrowserPane.goToURL(getClass().getResource("favorites.html"));
-		
-/*
-	String s = "file:/" + (System.getProperty("user.dir") + "\\resource\\favorites.html").replace('\\', '/');		
-	System.out.println(s);
-	// display favorites.html in favoritesBrowserPane
-	try {
-		favoritesBrowserPane.goToURL(new URL(s));
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}		
-*/		
 	
-		
+		favoritesBrowserPane.goToURL(getClass().getResource("favorites.html"));				
 
 		// create JSplitPane with horizontal split (side-by-side)
 		// and add WebBrowserPanes with JScrollPanes
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-				new JScrollPane(favoritesBrowserPane), new JScrollPane(
-						browserPane));
+				new JScrollPane(favoritesBrowserPane), 
+				new JScrollPane(browserPane));
 
 		// position divider between WebBrowserPanes
 		splitPane.setDividerLocation(210);
@@ -85,9 +57,9 @@ public class FavoritesWebBrowser extends JFrame {
 	// execute application
 	public static void main(String args[]) {
 		FavoritesWebBrowser browser = new FavoritesWebBrowser();
-
+		browser.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		browser.setSize(640, 480);
-
+		browser.setVisible(true);
 	}
 
 }
