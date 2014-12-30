@@ -39,8 +39,7 @@ public class ActionSample2 extends JFrame {
 				// and description
 				AccessibleContext actionContext = action.getAccessibleContext();
 				actionContext.setAccessibleName("sampleAction");
-				actionContext
-						.setAccessibleDescription("SampleAction opens a dialog box to demonstrate"
+				actionContext.setAccessibleDescription("SampleAction opens a dialog box to demonstrate"
 								+ " the Action class.");
 
 				// create and display dialog box
