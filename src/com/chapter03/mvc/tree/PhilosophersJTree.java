@@ -15,8 +15,7 @@ public class PhilosophersJTree extends JFrame {
 
 	private JTree tree;
 	private DefaultTreeModel philosophers;
-	private DefaultMutableTreeNode rootNode;
-
+	
 	// PhilosophersJTree constructor
 	public PhilosophersJTree() {
 		super("Favorite Philosophers");
