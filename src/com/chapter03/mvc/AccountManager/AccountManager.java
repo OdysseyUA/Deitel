@@ -51,7 +51,7 @@ public class AccountManager extends JFrame {
 		contentPane.add(account2Panel);
 		contentPane.add(pieChartPanel);
 
-		setSize(425, 450);
+		setSize(400, 550);
 
 	} // end AccountManager constructor
 
