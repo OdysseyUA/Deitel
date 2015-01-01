@@ -52,6 +52,7 @@ public class PhilosophersJTable extends JFrame {
 		philosophers.addRow(arendt);
 		// create a JTable for philosophers DefaultTableModel
 		table = new JTable(philosophers);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		// create JButton for adding philosophers
 		JButton addButton = new JButton("Add Philosopher");
