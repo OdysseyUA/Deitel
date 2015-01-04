@@ -21,10 +21,10 @@ public class DisplayQueryResults extends JFrame {
 		super("Displaying Query Results");
 
 		// Cloudscape database driver class name
-		String driver = "COM.cloudscape.core.RmiJdbcDriver";
+		String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
 		// URL to connect to books database
-		String url = "jdbc:cloudscape:rmi:books";
+		String url = "jdbc:sqlserver://localhost:1433;user=bh;password=bh;databaseName=books;";
 
 		// query to select entire authors table
 		String query = "SELECT * FROM authors";
