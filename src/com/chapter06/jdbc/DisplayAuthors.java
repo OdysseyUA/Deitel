@@ -12,9 +12,8 @@ public class DisplayAuthors extends JFrame {
    
 	private static final long serialVersionUID = 1L;
 	
-
-// constructor connects to database, queries database,
-   // processes results and displays results in window
+	// constructor connects to database, queries database,
+    // processes results and displays results in window
    public DisplayAuthors() 
    {
       super( "Authors Table of Books Database" );
@@ -29,8 +28,7 @@ public class DisplayAuthors extends JFrame {
          Connection connection = DriverManager.getConnection(
         	//"jdbc:sqlserver://MACROS\\SQLEXPRESS;user=bh;password=bh;databaseName=books;" );
             "jdbc:sqlserver://localhost:1433;user=bh;password=bh;databaseName=books;" );
-         
-         //"jdbc:sqlserver://localhost:1433;databaseName=books;integratedSecurity=true;";
+            //"jdbc:sqlserver://localhost:1433;databaseName=books;integratedSecurity=true;";
 
          // create Statement to query database
          Statement statement = connection.createStatement();
@@ -45,8 +43,7 @@ public class DisplayAuthors extends JFrame {
          int numberOfColumns = metaData.getColumnCount();
          
          for ( int i = 1; i <= numberOfColumns; i++ ) {
-            results.append( metaData.getColumnName( i )
-               + "\t" );
+            results.append( metaData.getColumnName( i ) + "\t" );
          }
          
          results.append( "\n" );
@@ -54,26 +51,25 @@ public class DisplayAuthors extends JFrame {
          while ( resultSet.next() ) {
             
             for ( int i = 1; i <= numberOfColumns; i++ ) {
-               results.append( resultSet.getObject( i ) 
-                  + "\t" );
+               results.append( resultSet.getObject( i ) + "\t" );
             }
             
             results.append( "\n" );
          }
          
          // close statement and connection
-         statement.close();
-         connection.close();            
+         if(!statement.isClosed()) {statement.close(); }
+         if(!connection.isClosed()) {connection.close(); }
 
          // set up GUI and display window
          JTextArea textArea = new JTextArea( 
-            results.toString() );
+            results.toString() );         
          Container container = getContentPane();
-
+         textArea.setEditable(false);
          container.add( new JScrollPane( textArea ) );
          
          setSize( 300, 100 );  // set window size
-         setVisible( true );   // display window
+         //setVisible( true );   // display window
       }  // end try
       
       // detect problems interacting with the database
@@ -99,7 +95,7 @@ public class DisplayAuthors extends JFrame {
    public static void main( String args[] )
    {
       DisplayAuthors window = new DisplayAuthors();
-      
+      window.setVisible(true);// display window
       window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
    }
 }  // end class DisplayAuthors
